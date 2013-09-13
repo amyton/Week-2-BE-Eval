@@ -97,7 +97,8 @@ describe Tennis::Player do
 
     context 'when player scores one more point after deuce' do
       it 'returns advantage' do
-        player.points = (player.points - player.opponent.points == 1)
+        player.points = 4
+        player.opponent.points = 3
 
         expect(player.score).to eq('advantage')
       end
@@ -105,7 +106,8 @@ describe Tennis::Player do
 
     context 'when player scores one more point after deuce' do
       it 'returns win' do
-        player.points >= 4 
+        player.points = 4 # not right
+        player.opponent.points = 2
 
         expect(player.score).to eq('win')
       end
